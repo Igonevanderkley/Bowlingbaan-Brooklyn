@@ -1,4 +1,15 @@
 <x-guest-layout>
+    @if(session('success'))
+        <div id="success-alert" class="alert" style="background-color: #f8d7da; border-color: #f5c6cb; color: #721c24; position: relative; padding: .75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: .25rem;">
+            {{ session('success') }}
+        </div>
+        <script>
+            // JavaScript om de melding na 5 seconden te laten verdwijnen
+            setTimeout(function() {
+                document.getElementById('success-alert').style.display = 'none';
+            }, 5000);
+        </script>
+    @endif
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
