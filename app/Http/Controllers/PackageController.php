@@ -9,9 +9,6 @@ class PackageController extends Controller
 {
     public function index()
     {
-        // // $packages = Package::all();
-        // return view('packages.pakketOverzicht');
-
         // haalt alle records op uit de 'packages' tabel
         $packages = Package::all();
         // geeft de view 'pakketOverzicht' door en geeft de variabele $packages mee
