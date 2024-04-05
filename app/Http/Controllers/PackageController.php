@@ -10,6 +10,6 @@ class PackageController extends Controller
     public function index()
     {
         // $packages = Package::all();
-        return ('fjdgsfdg');
+        return ('fjdgsfdg ');
     }
 }
