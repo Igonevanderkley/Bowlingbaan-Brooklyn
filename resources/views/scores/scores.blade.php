@@ -19,9 +19,8 @@
         {{ __('Scores') }}
     </h2>
 </x-slot>
+<a href="/create-score/{{ $reservationId }}">Nieuwe score</a>
 
-
-{{ $scores }}
 <table>
     <thead>
         <tr>
@@ -29,6 +28,8 @@
             <th>round</th>
             <th>score</th>
             <th>rank</th>
+            <th>delete</th>
+
         </tr>
     </thead>
     <tbody>
@@ -39,6 +40,7 @@
                 <td>{{ $score->score }}</td>
 
                 <td>{{ $loop->iteration }}</td>
+                <td><a href="">x</a></td>
         </tr>
 
         </tr>
@@ -46,6 +48,7 @@
     </tbody>
 </table>
 
+ 
 
 </x-app-layout>
 
