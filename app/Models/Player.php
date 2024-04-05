@@ -11,6 +11,11 @@ class Player extends Model
 
     public function score()
     {
-        return $this->hasMany(Score::class);
+        return $this->hasMany(Score::class, 'playerId');
+    }
+
+    public function reservation()
+    {
+        return $this->hasOne(Reservation::class, 'reservationId');
     }
 }

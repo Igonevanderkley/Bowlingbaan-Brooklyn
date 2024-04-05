@@ -11,6 +11,6 @@ class Score extends Model
 
     public function player()
     {
-        return $this->belongsTo(Player::class);
+        return $this->belongsTo(Player::class, 'playerId');
     }
 }
