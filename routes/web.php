@@ -23,11 +23,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/account', [accountOverzichtController::class, 'index'])->middleware(['auth', 'verified'])->name('account');
-
+Route::get('/account', [AccountOverzichtController::class, 'index'])->middleware(['auth', 'verified'])->name('account');
 Route::delete('/account/{id}', [AccountOverzichtController::class, 'destroy'])->middleware(['auth', 'verified'])->name('users.destroy');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/account/edit/{id}', [AccountOverzichtController::class, 'edit'])->name('account.edit');
+    Route::put('/account/update/{id}', [AccountOverzichtController::class, 'update'])->name('account.update');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

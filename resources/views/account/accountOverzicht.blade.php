@@ -18,29 +18,31 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $user)
-                    <tr class="odd:bg-white odd:dark:bg-white-900 even:bg-white-50 even:dark:bg-white-800 border-b dark:border-white-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-black">
-                            {{ $user->name }}
-                        </th>
-                        <td class="px-6 py-4 text-black">{{ $user->email }}</td>
-                        <td class="px-6 py-4 text-black">{{ $user->mobile }}</td>
-                        <td class="px-6 py-4 text-black">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                Edit
-                            </a>
-                        </td>
-                        <td class="px-6 py-4 text-black">
-                            <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline">
-                                    <i class="bi bi-trash"></i> Delete
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
+            @foreach ($users as $user)
+                <tr class="odd:bg-white odd:dark:bg-white-900 even:bg-white-50 even:dark:bg-white-800 border-b dark:border-white-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-black">
+                        {{ $user->name }}
+                    </th>
+                    <td class="px-6 py-4 text-black">{{ $user->email }}</td>
+                    <td class="px-6 py-4 text-black">{{ $user->mobile }}</td>
+                    <td class="px-6 py-4 text-black">
+                        <!-- Edit knop -->
+                        <a href="{{ route('account.edit', $user->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            Edit
+                        </a>
+                    </td>
+                    <td class="px-6 py-4 text-black">
+                        <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline">
+                                <i class="bi bi-trash"></i> Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+
             </tbody>
         </table>
     </div>
