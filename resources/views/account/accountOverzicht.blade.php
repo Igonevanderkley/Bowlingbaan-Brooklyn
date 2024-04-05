@@ -1,3 +1,11 @@
+/**
+ * Dit bestand vertegenwoordigt de accountoverzichtspagina.
+ * Het toont de persoonlijke informatie van de gebruiker en stelt hen in staat hun account te bewerken of te verwijderen.
+ *
+ * @filesource
+ * @package  resources/views/account
+ */
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-black leading-tight">
