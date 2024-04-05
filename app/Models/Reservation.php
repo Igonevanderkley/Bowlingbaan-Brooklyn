@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Reservation extends Model
 {
     use HasFactory;
@@ -18,4 +19,14 @@ class Reservation extends Model
     {
         return $this->hasOne(Package::class);
     }
+    protected $fillable = [
+        'userId',
+        'adults',
+        'children',
+        'packageId',
+        'fence',
+        'date',
+    ];
+
+    
 }
