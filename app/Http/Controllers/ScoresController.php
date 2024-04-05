@@ -14,7 +14,6 @@ class ScoresController extends Controller
     public function store(Request $request)
     {
 
-        dd($request->all());
         $name = $request->input('name');
         $reservationId = $request->input('reservationId');
 
@@ -24,10 +23,6 @@ class ScoresController extends Controller
 
         $round = $request->input('round');
 
-        for ($i = 1; $i <= 10; $i++) {
-            $score = $request->input($i);
-            $scores->score = $score;
-        }
 
 
         $player->reservationId = $reservationId;
@@ -35,5 +30,8 @@ class ScoresController extends Controller
         $player->name = $name;
         $player->save();
         $scores->save();
+
+        return redirect('/scores/' . $reservationId);
+
     }
 }
