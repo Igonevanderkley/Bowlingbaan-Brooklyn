@@ -21,7 +21,7 @@
             @foreach ($users as $user)
                 <tr class="odd:bg-white odd:dark:bg-white-900 even:bg-white-50 even:dark:bg-white-800 border-b dark:border-white-700">
                     <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-black">
-                        {{ $user->name }}
+                        {{ $user->name }
                     </th>
                     <td class="px-6 py-4 text-black">{{ $user->email }}</td>
                     <td class="px-6 py-4 text-black">{{ $user->mobile }}</td>
