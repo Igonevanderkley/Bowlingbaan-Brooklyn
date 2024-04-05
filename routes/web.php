@@ -37,6 +37,7 @@ Route::get('/scores/{slug}', function ($reservationId) {
     return view('scores/scores', [
         'scores' => $scores,
         'players' => $players,
+        'reservationId' => $reservationId,
     ]);
 })->middleware(['auth', 'verified'])->name('scores');
 
