@@ -24,51 +24,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/scores/{slug}', function ($reservationId) {
-    $scores = score::all();
-    $players = player::all();
-    
-    $scores = Player::select('scores.round', 'scores.score','players.name')
-        ->orderBy('scores.score', 'desc')
-        ->join('scores', 'players.id', '=', 'scores.playerId')
-        ->where('players.reservationId', $reservationId)
-        ->get(['players.*', 'scores.score']);
-     
-
-    return view('scores/scores', [
-        'scores' => $scores,
-        'players' => $players,
-        'reservationId' => $reservationId,
-    ]);
-})->middleware(['auth', 'verified'])->name('scores');
-
-
-Route::get('/create-score/{slug}', function ($reservationId) {
-
-    return view('scores/create-score', [
-        'reservationId' => $reservationId,
-    ]);
-})->middleware(['auth', 'verified'])->name('create-score');
-
-Route::post('/ScoresController/store', [ScoresController::class, 'store'])->name('ScoresController.store');
-
-
-
-
-
-
-
-
-Route::get('/leaderboard', function () {
-    $scores = Score::orderBy('score', 'desc')->limit(10)->get();
-
-    return view('scores/leaderboard', [
-        'scores' => $scores,
-    ]);
-})->middleware(['auth', 'verified'])->name('scores');
-
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/account/edit/{id}', [AccountOverzichtController::class, 'edit'])->name('account.edit');
     Route::put('/account/update/{id}', [AccountOverzichtController::class, 'update'])->name('account.update');
@@ -78,4 +33,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
