@@ -8,7 +8,7 @@
         @method('PUT')
 
         <div>
-            <label for="userId">User ID</label>
+            <label for="userId">UserId</label>
             <input type="text" id="userId" name="userId" value="{{ $reservation->userId }}" required>
         </div>
 
