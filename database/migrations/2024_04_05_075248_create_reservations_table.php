@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('adults');
             $table->integer('children')->nullable();
             $table->foreignId('packageId')->nullable();
-            $table->bool('fence');
+            $table->boolean('fence');
             $table->datetime('date');
         });
     }

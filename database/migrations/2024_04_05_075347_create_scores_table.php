@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
             $table->integer('score')->nullable();
-            $table->int('round')->nullable();
+            $table->integer('round')->nullable();
             $table->foreignId('playerId')->nullable();
             $table->timestamps();
         });
