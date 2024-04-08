@@ -11,11 +11,13 @@ class PersoonController extends Controller
 {
     public function index(): View
     {
-
-        $uitslagen = DB::table('uitslagens')
-            ->join('_reservering', 'uitslagens.id', '=', '_reservering.uitslagens_id')
-            ->join('_Persoon', 'uitslagens.id', '=', '_Persoon.uitslagens_id')
-            ->select('uitslagens.*', '_reservering.datum', '_Persoon.Voornaam', '_Persoon.Tussenvoegsel', '_Persoon.Achternaam')
+        $uitslagen = DB::table('_Reservering')
+            ->join('_Persoon', '_Reservering.PersoonId', '=', '_Persoon.Id')
+            ->join('_Spel', '_Reservering.Id', '=', '_Spel.ReserveringId')
+            ->join('Uitslagens', '_Spel.Id', '=', 'Uitslagens.SpelId')
+            ->select(DB::raw('DATE(_Reservering.Datum) as Datum'), 'Uitslagens.Aantalpunten', '_Persoon.Voornaam', '_Persoon.Tussenvoegsel', '_Persoon.Achternaam')
+            ->groupBy('Datum', 'Uitslagens.Aantalpunten', '_Persoon.Voornaam', '_Persoon.Tussenvoegsel', '_Persoon.Achternaam')
+            ->orderBy('Uitslagens.Aantalpunten', 'desc')
             ->get();
 
         return view('uitslagen.index', ['uitslagen' => $uitslagen]);

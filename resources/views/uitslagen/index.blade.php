@@ -42,10 +42,10 @@
                             {{ $uitslag->Achternaam }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $uitslag->aantal_punten }}
+                            {{ $uitslag->Aantalpunten }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $uitslag->datum }}
+                            {{ $uitslag->Datum }}
                         </td>
                     </tr>
                 @endforeach

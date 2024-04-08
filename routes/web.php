@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::post('/uitslagen', [UitslagenController::class, 'index'])->name('uitslagen.index');
 Route::resource('uitslagen', PersoonController::class)
     ->only(['index', 'show'])
     ->middleware(['auth', 'verified']);
