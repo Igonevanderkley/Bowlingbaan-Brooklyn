@@ -39,6 +39,9 @@ Route::get('/packages/{id}/edit', [PackageController::class, 'edit'])->middlewar
 
 Route::delete('/packages/{id}', [PackageController::class, 'destroy'])->middleware(['auth', 'verified'])->name('packages.destroy');
 
+Route::get('/account', [AccountOverzichtController::class, 'index'])->middleware(['auth', 'verified'])->name('account');
+Route::delete('/account/{id}', [AccountOverzichtController::class, 'destroy'])->middleware(['auth', 'verified'])->name('users.destroy');
+
 Route::middleware('auth')->group(function () {
     Route::get('/account/edit/{id}', [AccountOverzichtController::class, 'edit'])->name('account.edit');
     Route::put('/account/update/{id}', [AccountOverzichtController::class, 'update'])->name('account.update');
