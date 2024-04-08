@@ -19,8 +19,6 @@ class PersoonSeeder extends Seeder
                 'isVolwassen' => 1,
                 'isActief' => true,
                 'opmerkingen' => null,
-                'datumAangemaakt' => now(),
-                'datumGewijzigd' => now()
             ],
             [
                 'id' => 2,
@@ -32,8 +30,6 @@ class PersoonSeeder extends Seeder
                 'isVolwassen' => 1,
                 'isActief' => true,
                 'opmerkingen' => null,
-                'datumAangemaakt' => now(),
-                'datumGewijzigd' => now()
             ],
             [
                 'id' => 3,
@@ -45,8 +41,6 @@ class PersoonSeeder extends Seeder
                 'isVolwassen' => 1,
                 'isActief' => true,
                 'opmerkingen' => null,
-                'datumAangemaakt' => now(),
-                'datumGewijzigd' => now()
             ],
             [
                 'id' => 4,
@@ -58,8 +52,6 @@ class PersoonSeeder extends Seeder
                 'isVolwassen' => 1,
                 'isActief' => true,
                 'opmerkingen' => null,
-                'datumAangemaakt' => now(),
-                'datumGewijzigd' => now()
             ],
             [
                 'id' => 5,
@@ -71,8 +63,6 @@ class PersoonSeeder extends Seeder
                 'isVolwassen' => 1,
                 'isActief' => true,
                 'opmerkingen' => null,
-                'datumAangemaakt' => now(),
-                'datumGewijzigd' => now()
             ],
             [
                 'id' => 6,
@@ -84,8 +74,6 @@ class PersoonSeeder extends Seeder
                 'isVolwassen' => 0,
                 'isActief' => true,
                 'opmerkingen' => null,
-                'datumAangemaakt' => now(),
-                'datumGewijzigd' => now()
             ],
             [
                 'id' => 7,
@@ -97,8 +85,6 @@ class PersoonSeeder extends Seeder
                 'isVolwassen' => 0,
                 'isActief' => true,
                 'opmerkingen' => null,
-                'datumAangemaakt' => now(),
-                'datumGewijzigd' => now()
             ],
             [
                 'id' => 8,
@@ -110,8 +96,6 @@ class PersoonSeeder extends Seeder
                 'isVolwassen' => 1,
                 'isActief' => true,
                 'opmerkingen' => null,
-                'datumAangemaakt' => now(),
-                'datumGewijzigd' => now()
             ],
         ]);
     }
