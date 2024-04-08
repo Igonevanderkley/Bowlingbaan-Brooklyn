@@ -33,6 +33,11 @@
                             {{ __('Uitslagen') }}
                         </x-nav-link>
                     </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('spelers.index')" :active="request()->routeIs('spelers')">
+                            {{ __('Spelers') }}
+                        </x-nav-link>
+                    </div>
                 </div>
             </div>
 

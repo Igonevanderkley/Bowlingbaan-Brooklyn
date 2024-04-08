@@ -18,6 +18,7 @@ use function Laravel\Prompts\select;
 use App\Http\Controllers\ScoresController;
 use App\Http\Controllers\UitslagenController;
 use App\Models\Uitslagen;
+use App\Http\Controllers\SpelerController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -56,9 +57,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::post('/uitslagen', [UitslagenController::class, 'index'])->name('uitslagen.index');
+Route::get('/spelers/{id}', [SpelerController::class, 'show'])->name('spelers.detail');
 Route::resource('uitslagen', PersoonController::class)
     ->only(['index', 'show'])
+    ->middleware(['auth', 'verified']);
+
+Route::resource('spelers', SpelerController::class)
+    ->only(['index', 'show', 'store', 'edit', 'update'])
     ->middleware(['auth', 'verified']);
 require __DIR__ . '/auth.php';
