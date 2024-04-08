@@ -23,9 +23,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/packages', function () {
-//     return view('packages.pakketOverzicht');
-// })->middleware(['auth', 'verified'])->name('packages');
 Route::get('/packages', [PackageController::class, 'index'])->middleware(['auth', 'verified'])->name('packages');
 Route::get('packages/create', [PackageController::class, 'create'])->middleware(['auth', 'verified'])->name('packages.create');
 Route::get('/packages/{id}/edit', [PackageController::class, 'edit'])->middleware(['auth', 'verified'])->name('packages.edit');
