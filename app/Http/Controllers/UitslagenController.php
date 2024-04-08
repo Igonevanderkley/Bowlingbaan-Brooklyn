@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Uitslagen;
+use App\Models\Persoon;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 
 class UitslagenController extends Controller
@@ -10,9 +12,11 @@ class UitslagenController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        return view('uitslagen.index', [
+            'uitslagen' => Persoon::all()
+        ]);
     }
 
     /**
