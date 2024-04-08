@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->integer('nummer');
             $table->boolean('heeftHek');
-            $table->boolean('isActief');
             $table->string('opmerkingen')->nullable();
             $table->timestamps();
         });

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('baanId');
             $table->integer('pakketOptieId')->nullable();
             $table->integer('reserveringStatusId');
-            $table->integer('reserveringsNummer');
+            $table->bigInteger('reserveringsNummer');
             $table->date('datum');
             $table->integer('aantalUren');
             $table->time('beginTijd');
