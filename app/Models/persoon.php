@@ -16,4 +16,9 @@ class persoon extends Model
         return $this->hasOne(type_persoon::class, 'typePersoonId');
     }
 
+    public function baan()
+    {
+        return $this->hasOne(baan::class, 'baanId');
+    }
+
 }
