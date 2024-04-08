@@ -1,33 +1,34 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-black leading-tight">
-            {{ __('Mijn Reserveringen') }}
-        </h2>
-    </x-slot>
 
-    @section('content')
-        <h1>Mijn Reserveringen</h1>
 
-        @if(session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-        @endif
+@extends('layouts.app')
 
-        <form method="GET" action="{{ route('mijnReserveringen') }}">
-            <label for="vanafDatum">Vanaf datum:</label>
-            <input type="date" id="vanafDatum" name="vanafDatum">
-            <button type="submit">Toon reserveringen</button>
-        </form>
+@section('content')
+    <h1>Overzicht Reserveringen</h1>
 
-        @if(isset($reserveringen))
-            <!-- Hier kun je je reserveringen tonen -->
-            @foreach ($reserveringen as $reservering)
-                {{ $reservering->datum }} <!-- Voorbeeldweergave van een reservering -->
+    <form action="{{ route('mijnReserveringen') }}" method="GET">
+        <label for="vanafDatum">Vanaf Datum:</label>
+        <input type="date" id="vanafDatum" name="vanafDatum" value="{{ old('vanafDatum', now()->subMonths(1)->format('Y-m-d')) }}">
+        <button type="submit">Toon Reserveringen</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Aantal Uren</th>
+                <!-- Voeg hier andere kolommen toe die je wilt tonen -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($reserveringen as $reservering)
+                <tr>
+                    <td>{{ $reservering->datum }}</td>
+                    <td>{{ $reservering->aantalUren }}</td>
+                    <!-- Voeg hier andere kolommen toe die je wilt tonen -->
+                </tr>
             @endforeach
-        @else
-            <p>Geen reserveringen gevonden.</p>
-        @endif
-    @endsection
-</x-app-layout>
+        </tbody>
+    </table>
+@endsection
+
 

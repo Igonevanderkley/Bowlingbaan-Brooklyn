@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Reservering; 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ReserveringSeeder extends Seeder
 {
@@ -18,7 +17,7 @@ class ReserveringSeeder extends Seeder
                 'baanId' => 8,
                 'pakketOptieId' => 1,
                 'reserveringStatusId' => 1,
-                'reserveringsnummer' => 2022122000001,
+                'reserveringsNummer' => 2022122000001,
                 'datum' => '2022-12-20',
                 'aantalUren' => 1,
                 'beginTijd' => '15:00:00',
@@ -36,7 +35,7 @@ class ReserveringSeeder extends Seeder
                 'baanId' => 2,
                 'pakketOptieId' => 3,
                 'reserveringStatusId' => 1,
-                'reserveringsnummer' => 2022122000002,
+                'reserveringsNummer' => 2022122000002,
                 'datum' => '2022-12-20',
                 'aantalUren' => 1,
                 'beginTijd' => '17:00:00',
@@ -54,7 +53,7 @@ class ReserveringSeeder extends Seeder
                 'baanId' => 2,
                 'pakketOptieId' => 3,
                 'reserveringStatusId' => 1,
-                'reserveringsnummer' => 2022122000003,
+                'reserveringsNummer' => 2022122000003,
                 'datum' => '2022-12-24',
                 'aantalUren' => 2,
                 'beginTijd' => '16:00:00',
@@ -72,7 +71,7 @@ class ReserveringSeeder extends Seeder
                 'baanId' => 6,
                 'pakketOptieId' => null,
                 'reserveringStatusId' => 1,
-                'reserveringsnummer' => 2022122000004,
+                'reserveringsNummer' => 2022122000004,
                 'datum' => '2022-12-27',
                 'aantalUren' => 2,
                 'beginTijd' => '17:00:00',
@@ -90,7 +89,7 @@ class ReserveringSeeder extends Seeder
                 'baanId' => 4,
                 'pakketOptieId' => 4,
                 'reserveringStatusId' => 1,
-                'reserveringsnummer' => 2022122000005,
+                'reserveringsNummer' => 2022122000005,
                 'datum' => '2022-12-28',
                 'aantalUren' => 1,
                 'beginTijd' => '14:00:00',
@@ -108,7 +107,7 @@ class ReserveringSeeder extends Seeder
                 'baanId' => 5,
                 'pakketOptieId' => 4,
                 'reserveringStatusId' => 1,
-                'reserveringsnummer' => 2022122000006,
+                'reserveringsNummer' => 2022122000006,
                 'datum' => '2022-12-28',
                 'aantalUren' => 2,
                 'beginTijd' => '19:00:00',
