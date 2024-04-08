@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 // Deze controller beheert de accountoverzichtpagina
 class AccountOverzichtController extends Controller
