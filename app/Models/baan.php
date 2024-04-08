@@ -9,6 +9,8 @@ class baan extends Model
 {
     use HasFactory;
 
+    protected $table = 'baan';
+
     public function persoon()
     {
         return $this->hasMany(persoon::class, 'baanId');
