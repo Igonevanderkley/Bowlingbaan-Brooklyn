@@ -7,7 +7,10 @@ use App\Models\Player;
 use App\Models\Score;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
+use App\Models\Reservering;
+use App\Models\type_persoon;
+use App\Models\persoon;
+
 use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
@@ -19,53 +22,61 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        // Creating a static user
-        User::create([
-            'name' => $faker->name,
-            'email' => $faker->unique()->safeEmail,
-            'mobile' => $faker->phoneNumber,
-            'email_verified_at' => now(),
-            'password' => Hash::make('password'),
-        ]);
-
-        // Creating 10 static reservations
-        for ($i = 0; $i < 10; $i++) {
-            Reservation::create([
-                'userId' => 1,
-                'adults' => $faker->numberBetween(1, 5),
-                'children' => $faker->numberBetween(0, 3),
-                'packageId' => $faker->numberBetween(1, 10),
-                'fence' => $faker->boolean,
-                'date' => $faker->dateTimeThisMonth(),
-            ]);
-        }
-
-        // Creating 10 static players
-        for ($i = 0; $i < 10; $i++) {
-            Player::create([
-                'name' => $faker->firstName,
-                'reservationId' => $faker->numberBetween(1, 10),
+        persoon::create(
+            [
+                'typePersoonId' => 1,
+                'voornaam' => 'Mazin',
+                'achternaam' => 'Jamil',
+                'roepnaam' => 'Mazin',
+                'isVolwassen' => 1,
             ]);
 
-            Player::create([
-                'name' => $faker->firstName,
-                'reservationId' => 4,
-            ]);
-        }
+        Reservering::create(
+            [
+                'persoonId' => 1,
+                'openingsTijdId' => 1,
+                'tariefId' => 1,
+                'baanId' => 8,
+                'pakketOptieId' => 1,
+                'reserveringsStatusId' => 1,
+                'reserveringsNummer' => 2022122000001,
+                'datum' => '2022-12-20',
+                'aantalUren' => 1,
+                'beginTijd' => $faker->time(),
+                'eindTijd' => $faker->time(),
+                'aantalVolwassenen' => 4,
+                'aantalKinderen' => 2
+            ],
+            [
+                'persoonId' => 2,
+                'openingsTijdId' => 2,
+                'tariefId' => 2,
+                'baanId' => 8,
+                'pakketOptieId' => 1,
+                'reserveringsStatusId' => 1,
+                'reserveringsNummer' => 2022122000002,
+                'datum' => '2022-12-20',
+                'aantalUren' => 1,
+                'beginTijd' => $faker->time(),
+                'eindTijd' => $faker->time(),
+                'aantalVolwassenen' => 4,
+                'aantalKinderen' => 2
+            ]
+        );
 
-        // Creating 10 static scores
-        for ($i = 0; $i < 10; $i++) {
-            Score::create([
-                'score' => $faker->numberBetween(60, 100),
-                'round' => 1,
-                'playerId' => $faker->numberBetween(1, 10),
-            ]);
-
-            Score::create([
-                'score' => $faker->numberBetween(60, 100),
-                'round' => 2,
-                'playerId' => $faker->numberBetween(1, 10),
-            ]);
-        }
+        type_persoon::create(
+            [
+                'id' => 1,
+                'naam' => 'klant',
+            ],
+            [
+                'id' => 2,
+                'naam' => 'medewerker',
+            ],
+            [
+                'id' => 3,
+                'naam' => 'gast',
+            ]
+        );
     }
 }
