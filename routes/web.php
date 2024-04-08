@@ -96,5 +96,13 @@ Route::get('/reserveringen/{persoonId}', [ReserveringController::class, 'showRes
 Route::get('/filter-reservations', [ReserveringController::class, 'filter'])
     ->middleware(['auth', 'verified'])
     ->name('filterReservations');
-    
+
+Route::get('/edit/{reserveringId}/{baanId}/{persoonId}', [ReserveringController::class, 'showEdit'])
+->middleware(['auth', 'verified'])
+->name('reserveringen');
+
+Route::patch('/update', [ReserveringController::class, 'update'])
+    ->middleware(['auth', 'verified'])
+    ->name('update');
+
 require __DIR__ . '/auth.php';
