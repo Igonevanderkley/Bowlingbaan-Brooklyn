@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>overzicht reserveringen</title>
 </head>
 
 <body>
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Reserveringen') }}
+                {{ __('Overzicht reserveringen') }}
             </h2>
         </x-slot>
 
-        <h2 class="notification"> {{ $notification }} </h2> 
+        <h2 class="notification"> {{ $notification }} </h2>
 
         @foreach ($reserveringen as $reservering)
             <div class="naam">
@@ -25,14 +25,13 @@
 
                 <form action="{{ route('filterReservations') }}" method="GET">
                     <input type="date" name="startDatum" id="startDatum">
-                    <input type="hidden" name="persoonId" value="{{ $reservering->persoonId }}">
+                    <input type="hidden" name="persoonId" value="{{ $reservering->id }}">
                     <button type="submit" class="blue-button">Toon reserveringen</button>
                 </form>
 
             </div>
         @break
     @endforeach
-
 
     <table>
         <thead>
@@ -44,6 +43,7 @@
                 <td>Eindtijd</td>
                 <td>Aantal volwassenen</td>
                 <td>Aantal kinderen</td>
+                <td>Baan</td>
                 <td>Wijzig</td>
             </tr>
         </thead>
@@ -59,8 +59,11 @@
                     <td>{{ $reservering->eindTijd }}</td>
                     <td>{{ $reservering->aantalVolwassenen }}</td>
                     <td>{{ $reservering->aantalKinderen }}</td>
+                    <td>{{ $reservering->baanId }}</td>
                     <td>
-                        <a href="{{ $reservering->id }}">X</a>
+                        <a
+                            href="/edit/{{ $reservering->reserveringId }}/{{ $reservering->baanId }}/{{ $reservering->id }}"><img
+                                src="/pencil.png" alt=""></a>
                     </td>
                 </tr>
             @endforeach
