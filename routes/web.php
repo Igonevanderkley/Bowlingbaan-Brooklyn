@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\DB;
 
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PersoonController;
 use function Laravel\Prompts\select;
 use App\Http\Controllers\ScoresController;
-
+use App\Http\Controllers\UitslagenController;
+use App\Models\Uitslagen;
 
 Route::get('/', function () {
     return view('welcome');
@@ -56,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::resource('scores', ScoresController::class);
-
+Route::resource('uitslagen', PersoonController::class)
+    ->only(['index', 'show'])
+    ->middleware(['auth', 'verified']);
 require __DIR__ . '/auth.php';
