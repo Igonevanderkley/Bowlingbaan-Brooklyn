@@ -1,4 +1,4 @@
-<form action="{{ route('packages.edit', $package->id) }}" method="POST">
+<form action="{{ route('packages.update', $package->id) }}" method="POST">
     @csrf
     @method('PUT')
     <div>

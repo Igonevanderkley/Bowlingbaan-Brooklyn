@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 Route::get('/packages', [PackageController::class, 'index'])->middleware(['auth', 'verified'])->name('packages');
 Route::get('packages/create', [PackageController::class, 'create'])->middleware(['auth', 'verified'])->name('packages.create');
 Route::get('/packages/{id}/edit', [PackageController::class, 'edit'])->middleware(['auth', 'verified'])->name('packages.edit');
-
+Route::put('/packages/{id}', [PackageController::class, 'update'])->middleware(['auth', 'verified'])->name('packages.update');
 Route::delete('/packages/{id}', [PackageController::class, 'destroy'])->middleware(['auth', 'verified'])->name('packages.destroy');
 
 Route::middleware('auth')->group(function () {
