@@ -28,6 +28,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call([
+            ReserveringSeeder::class,
+            PersoonSeeder::class,
+            TypePersoonSeeder::class,
+            BaanSeeder::class,
+        ]);
         $faker = Faker::create();
 
         persoon::create([
@@ -108,12 +114,6 @@ class DatabaseSeeder extends Seeder
             ['id' => 7, 'nummer' => 7, 'heeftHek' => 1],
             ['id' => 8, 'nummer' => 8, 'heeftHek' => 1]
 
-        ]);
-        $this->call([
-            ReserveringSeeder::class,
-            PersoonSeeder::class,
-            TypePersoonSeeder::class,
-            BaanSeeder::class,
         ]);
         reservation::create([
             'userId' => 1, // Replace with actual user ID
