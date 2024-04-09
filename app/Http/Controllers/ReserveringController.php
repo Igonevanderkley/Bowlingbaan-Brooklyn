@@ -55,10 +55,7 @@ class ReserveringController extends Controller
             $notification = null;
         }
 
-        return view('reserveringen.reserveringen', [
-            'reserveringen' => $reserveringen,
-            'notification' => $notification,
-        ]);
+        return redirect()->route('reserveringen', ['persoonId' => $persoonId])->with('success', $notification);
     }
 
 
@@ -72,8 +69,10 @@ class ReserveringController extends Controller
 
     public function update(Request $request)
     {
-
+        $baanId = $request->input('baannummer');
         $persoonId = $request->input('persoonId');
+        $reserveringId = $request->input('reserveringId');
+
 
         $reserveringen = Reservering::select('reservering.baanId', 'reservering.Id as reserveringId', 'persoon.id', 'persoon.voornaam', 'persoon.achternaam', 'datum', 'aantalUren', 'beginTijd', 'eindTijd', 'aantalVolwassenen', 'aantalKinderen')
             ->join('persoon', 'reservering.persoonId', '=', 'persoon.id')
@@ -86,32 +85,28 @@ class ReserveringController extends Controller
 
         $aantalKinderen = Reservering::select('aantalKinderen')
             ->where('persoonId', $persoonId)
+            ->where('reservering.Id', $reserveringId)
             ->get();
 
-        if ($aantalKinderen !== null && $baanId < 6) {
-            $notification = "Deze baan is ongeschikt voor kinderen omdat deze baan geen hekjes heeft (probeer opnieuw)";
-            return view('reserveringen.reserveringen', [
-                'reserveringen' => $reserveringen,
-                'notification' => $notification
-            ]);
-        } else {
-            $reserveringId = $request->input('reserveringId');
-            $baanId = $request->input('baannummer');
-            $persoonId = $request->input('persoonId');
+        foreach ($aantalKinderen as $kinderen) {
 
+            if ($kinderen->aantalKinderen > 0 && $baanId < 6) {
+                return redirect()->route('reserveringen', ['persoonId' => $persoonId])->with('success', 'Deze baan is ongeschikt voor kinderen omdat deze baan geen hekjes heeft (probeer opnieuw)');
 
-            $reservering = Reservering::find($reserveringId);
+            } else {
 
-            $reservering->baanId = $baanId;
-            $reservering->save();
+                $reservering = Reservering::find($reserveringId);
+                $reservering->baanId = $baanId;
+                $reservering->save();
 
+                return redirect()->route('reserveringen', ['persoonId' => $persoonId])->with('success', 'Het baannummer is succesvol gewijzigd');
 
-            $notification = "Het baannummer is succesvol gewijzigd";
+                // return view('reserveringen.reserveringen', [
+                //     'reserveringen' => $reserveringen,
+                //     'notification' => $notification
+                // ]);
+            }
 
-            return view('reserveringen.reserveringen', [
-                'reserveringen' => $reserveringen,
-                'notification' => $notification
-            ]);
         }
     }
 }
