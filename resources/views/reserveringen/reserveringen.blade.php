@@ -16,8 +16,19 @@
                 {{ __('Overzicht reserveringen') }}
             </h2>
         </x-slot>
+    
+        @if (session('success'))
+            <h2 class="alert alert-success notification">
+                {{ session('success') }}
+            </h2>
 
-        <h2 class="notification"> {{ $notification }} </h2>
+            <script>
+                setTimeout(function() {
+                    document.querySelector('.notification').style.display = 'none';
+                }, 3000); 
+            </script>
+        @endif
+
 
         @foreach ($reserveringen as $reservering)
             <div class="naam">
@@ -26,6 +37,9 @@
                 <form action="{{ route('filterReservations') }}" method="GET">
                     <input type="date" name="startDatum" id="startDatum">
                     <input type="hidden" name="persoonId" value="{{ $reservering->id }}">
+
+                    <input type="hidden" name="reserveringId" value="{{ $reservering->reserveringId }}">
+
                     <button type="submit" class="blue-button">Toon reserveringen</button>
                 </form>
 
