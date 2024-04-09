@@ -99,7 +99,7 @@ Route::get('/filter-reservations', [ReserveringController::class, 'filter'])
 
 Route::get('/edit/{reserveringId}/{baanId}/{persoonId}', [ReserveringController::class, 'showEdit'])
 ->middleware(['auth', 'verified'])
-->name('reserveringen');
+->name('edit');
 
 Route::patch('/update', [ReserveringController::class, 'update'])
     ->middleware(['auth', 'verified'])
