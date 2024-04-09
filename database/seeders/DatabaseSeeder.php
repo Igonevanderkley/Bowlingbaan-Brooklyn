@@ -24,13 +24,19 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call(ReserveringSeeder::class);
+        $this->call(PersoonSeeder::class);
+        $this->call(UitslagSeeder::class);
+        $this->call(SpelSeeder::class);
+
         reservation::create([
             'userId' => 1, // Replace with actual user ID
             'adults' => 2,
             'children' => 1,
             'packageId' => 1, // Replace with actual package ID
             'fence' => true,
-            'date' => Carbon::now(),
+            'date' => '2021-12-31',
         ]);
     }
 }
