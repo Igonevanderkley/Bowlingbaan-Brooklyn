@@ -1,8 +1,8 @@
-/*
+<!-- /*
 Dit is de weergave voor het bewerken van een account.
 Het bevat een formulier waarin de gebruiker zijn/haar gegevens kan bewerken, zoals naam en e-mailadres.
 Als er een succesmelding is, wordt deze weergegeven als een groene melding.
-*/
+*/ -->
 
 <x-app-layout>
     <x-slot name="header">

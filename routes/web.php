@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MijnReserveringenController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\PackageController;
@@ -38,6 +39,9 @@ Route::get('packages/create', [PackageController::class, 'create'])->middleware(
 Route::get('/packages/{id}/edit', [PackageController::class, 'edit'])->middleware(['auth', 'verified'])->name('packages.edit');
 
 Route::delete('/packages/{id}', [PackageController::class, 'destroy'])->middleware(['auth', 'verified'])->name('packages.destroy');
+
+
+Route::get('/account/mijnReserveringen', [MijnReserveringenController::class, 'mijnReserveringen'])->middleware(['auth', 'verified'])->name('mijnReserveringen');
 
 Route::get('/account', [AccountOverzichtController::class, 'index'])->middleware(['auth', 'verified'])->name('account');
 Route::delete('/account/{id}', [AccountOverzichtController::class, 'destroy'])->middleware(['auth', 'verified'])->name('users.destroy');
