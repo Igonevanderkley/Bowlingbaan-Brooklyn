@@ -18,7 +18,6 @@
             </h2>
         </x-slot>
 
-
         <form action="{{ route('update') }}" method="POST"> @csrf
                 @method('PATCH')
             Baannummer: <select name="baannummer" id="baannummer">
