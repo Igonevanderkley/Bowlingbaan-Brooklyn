@@ -35,10 +35,11 @@ class SpelerController extends Controller
     {
         $messages = [
             'aantalpunten.max' => 'Het aantal punten is niet geldig, voer een waarde in kleiner of gelijk aan 300.',
+            'aantalpunten.min' => 'Het aantal punten is niet geldig, voer een waarde in groter dan 0 of gelijk aan.',
         ];
 
         $validatedData = $request->validate([
-            'aantalpunten' => 'required|integer|max:300',
+            'aantalpunten' => 'required|integer|max:300|min:0',
         ], $messages);
 
         $aantalpunten = $validatedData['aantalpunten'];

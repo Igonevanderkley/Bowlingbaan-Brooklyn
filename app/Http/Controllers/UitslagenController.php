@@ -7,15 +7,25 @@ use App\Models\Persoon;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 
+
+
 class UitslagenController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
+        $date = $request->input('date', now()->format('Y-m-d'));
+
+        if ($date) {
+            $uitslagen = Persoon::whereDate('created_at', '>=', $date)->get();
+        } else {
+            $uitslagen = Persoon::all();
+        }
+
         return view('uitslagen.index', [
-            'uitslagen' => Persoon::all()
+            'uitslagen' => $uitslagen
         ]);
     }
 

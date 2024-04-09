@@ -24,7 +24,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
+        User::create([
+            'name' => 'Default User',
+            'email' => 'default@example.com',
+            'password' => Hash::make('password'),
+        ]);
         $this->call(ReserveringSeeder::class);
         $this->call(PersoonSeeder::class);
         $this->call(UitslagSeeder::class);

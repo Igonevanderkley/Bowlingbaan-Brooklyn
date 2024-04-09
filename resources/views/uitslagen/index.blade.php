@@ -6,7 +6,13 @@
     </x-slot>
 
     <div class="relative overflow-x-auto">
-
+        <form method="GET" action="{{ route('uitslagen.index') }}" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 m-5" type="date" name="date" placeholder="Selecteer een datum"
+                aria-label="Selecteer een datum">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Button
+            </button>
+        </form>
         <table class="w-full text-sm text-left rtl:text-right text-black">
             <thead class="text-xs text-black uppercase bg-white">
                 <tr>
