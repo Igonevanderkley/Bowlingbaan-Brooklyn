@@ -5,20 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reservering extends Model
+class persoon extends Model
 {
-
-    protected $table = 'reservering';
-
     use HasFactory;
 
+    protected $table = 'persoon';
 
-    public function persoon()
+    public function type_persoon()
     {
-        return $this->hasMany(persoon::class, 'persoonId');
+        return $this->hasOne(type_persoon::class, 'typePersoonId');
     }
 
-    public function reservering()
+    public function baan()
     {
         return $this->hasOne(baan::class, 'baanId');
     }
