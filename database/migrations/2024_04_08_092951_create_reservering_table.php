@@ -26,8 +26,6 @@ return new class extends Migration
             $table->time('eindTijd');
             $table->integer('aantalVolwassen');
             $table->integer('aantalKinderen')->nullable();
-            $table->boolean('isActief');
-            $table->string('opmerkingen')->nullable();
             $table->timestamps();
         });
     }

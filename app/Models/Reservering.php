@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reservering extends Model
 {
 
-    protected $table = 'reservering';
+    protected $table = 'reserverings';
 
     use HasFactory;
 

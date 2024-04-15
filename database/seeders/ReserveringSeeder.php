@@ -24,8 +24,6 @@ class ReserveringSeeder extends Seeder
                 'eindTijd' => '16:00:00',
                 'aantalVolwassen' => 4,
                 'aantalKinderen' => 2,
-                'isActief' => true,
-                'opmerkingen' => null
             ],
             [
                 'id' => 5,
@@ -42,8 +40,6 @@ class ReserveringSeeder extends Seeder
                 'eindTijd' => '18:00:00',
                 'aantalVolwassen' => 4,
                 'aantalKinderen' => null,
-                'isActief' => true,
-                'opmerkingen' => null
             ],
             [
                 'id' => 6,
@@ -60,8 +56,6 @@ class ReserveringSeeder extends Seeder
                 'eindTijd' => '18:00:00',
                 'aantalVolwassen' => 4,
                 'aantalKinderen' => null,
-                'isActief' => true,
-                'opmerkingen' => null
             ],
             [
                 'id' => 7,
@@ -78,8 +72,6 @@ class ReserveringSeeder extends Seeder
                 'eindTijd' => '19:00:00',
                 'aantalVolwassen' => 2,
                 'aantalKinderen' => null,
-                'isActief' => true,
-                'opmerkingen' => null
             ],
             [
                 'id' => 8,
@@ -96,8 +88,6 @@ class ReserveringSeeder extends Seeder
                 'eindTijd' => '15:00:00',
                 'aantalVolwassen' => 3,
                 'aantalKinderen' => null,
-                'isActief' => true,
-                'opmerkingen' => null
             ],
             [
                 'id' => 9,
@@ -114,8 +104,6 @@ class ReserveringSeeder extends Seeder
                 'eindTijd' => '21:00:00',
                 'aantalVolwassen' => 2,
                 'aantalKinderen' => null,
-                'isActief' => true,
-                'opmerkingen' => null
             ],
         ]);
     }
